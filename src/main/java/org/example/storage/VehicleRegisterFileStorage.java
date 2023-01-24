@@ -20,7 +20,7 @@ public class VehicleRegisterFileStorage implements VehicleRegisterPersistenceSto
         }
         try {
             FileWriter myWriter = new FileWriter(vehicle.registrationNumber + ".txt");
-            myWriter.write(vehicle.model+';'+vehicle.registrationNumber+';'+vehicle.make+';'+vehicle.numberOfSeats+';'+vehicle.vehicleType);
+            myWriter.write(vehicle.model+';'+vehicle.registrationNumber+';'+vehicle.make+';'+vehicle.numberOfSeats+';'+vehicle.vehicleType+';'+vehicle.motorEmissionType);
             myWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,7 +39,7 @@ public class VehicleRegisterFileStorage implements VehicleRegisterPersistenceSto
             e.printStackTrace();
         }
         Vehicle vehicle = new Vehicle(data.split(";")[0],data.split(";")[1],data.split(";")[2],
-                Integer.parseInt(  data.split(";")[3]),data.split(";")[4]);
+                Integer.parseInt(  data.split(";")[3]),data.split(";")[4],data.split(";")[5]);
         return vehicle;
     }
 }
